@@ -28,7 +28,7 @@
     "state",
     "vueuse"
   ],
-  "author": "Your Name",
+  "author": "David Eldridge aka DaveyRojo",
   "license": "MIT",
   "peerDependencies": {
     "@vueuse/core": "^10.0.0",
