@@ -2,8 +2,8 @@
   "name": "use-ref-with-reset",
   "version": "1.0.0",
   "description": "A Vue composable for tracking and resetting reactive state with original values.",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
@@ -32,7 +32,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@vueuse/core": "^10.0.0",
-    "vue": "^3.3.0"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
