@@ -25,12 +25,13 @@
   "author": "Your Name",
   "license": "MIT",
   "peerDependencies": {
-    "vue": "^3.3.0",
-    "@vueuse/core": "^10.0.0"
+    "@vueuse/core": "^10.0.0",
+    "vue": "^3.3.0"
   },
   "devDependencies": {
+    "@types/node": "^18.0.0",
+    "jsdom": "^26.1.0",
     "typescript": "^5.0.0",
-    "vitest": "^1.0.0",
-    "@types/node": "^18.0.0"
+    "vitest": "^1.0.0"
   }
 }
