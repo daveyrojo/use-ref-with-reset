@@ -102,7 +102,7 @@ export function useRefWithReset<T>(
    * Resets the value back to the original value.
    */
   function reset() {
-    value.value = structuredClone(original.value)
+    value.value = clone(original.value)
   }
 
   /**
@@ -111,8 +111,8 @@ export function useRefWithReset<T>(
    * @param newOriginal The new value to set as the original and current state.
    */
   function resetTo(newOriginal: T) {
-    original.value = freezeOriginal ? Object.freeze(structuredClone(newOriginal)) : structuredClone(newOriginal)
-    value.value = structuredClone(clone(original.value))
+    original.value = freezeOriginal ? Object.freeze(clone(newOriginal)) : clone(newOriginal)
+    value.value = clone(original.value)
   }
 
   /**
@@ -121,7 +121,7 @@ export function useRefWithReset<T>(
    * @param newValue The new value to set.
    */
   function set(newValue: T) {
-    value.value = structuredClone(newValue)
+    value.value = clone(newValue)
   }
 
   /**
@@ -137,9 +137,9 @@ export function useRefWithReset<T>(
       () => toValue(watchSource),
       (newVal) => {
         const rawVal = toRaw(toValue(newVal))
-        value.value = structuredClone(rawVal)
+        value.value = clone(rawVal)
         if (syncOriginalOnSourceChange)
-          original.value = freezeOriginal ? Object.freeze(structuredClone(rawVal)) : structuredClone(rawVal)
+          original.value = freezeOriginal ? Object.freeze(clone(rawVal)) : clone(rawVal)
       },
       { deep: deepWatch }
     )
