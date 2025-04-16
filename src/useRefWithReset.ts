@@ -1,5 +1,6 @@
 import { type Ref, ref, watch, computed, toRaw } from 'vue'
 import { toValue, type MaybeRefOrGetter } from '@vueuse/core'
+import { clone } from './utils/clone'
 
 /**
  * Options for `useRefWithReset` composable.
@@ -94,8 +95,8 @@ export function useRefWithReset<T>(
   } = options
 
   const _initial = toValue(initialValue)
-  const original = ref<T>(structuredClone(_initial))
-  const value = ref<T>(structuredClone(_initial))
+  const original = ref<T>(clone(_initial))
+  const value = ref<T>(clone(_initial))
 
   /**
    * Resets the value back to the original value.
@@ -111,7 +112,7 @@ export function useRefWithReset<T>(
    */
   function resetTo(newOriginal: T) {
     original.value = freezeOriginal ? Object.freeze(structuredClone(newOriginal)) : structuredClone(newOriginal)
-    value.value = structuredClone(original.value)
+    value.value = structuredClone(clone(original.value))
   }
 
   /**
@@ -151,5 +152,5 @@ export function useRefWithReset<T>(
     resetTo,
     set,
     isModified
-  }
+  } as UseRefWithResetReturn<T>
 }
