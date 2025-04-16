@@ -1,6 +1,6 @@
 {
   "name": "@daveyrojo/use-ref-with-reset",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Vue composable for tracking and resetting reactive state with original values.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
